@@ -8,6 +8,9 @@ yarn-error.log*
 # Build
 dist/
 
+# package-lock
+package-lock.json
+
 # Runtime data
 pids
 *.pid
