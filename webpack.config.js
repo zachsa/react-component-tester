@@ -33,7 +33,6 @@ module.exports = {
     })
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
     compress: true,
     before: function(app, server) {
       console.log("'before' callback is here")
