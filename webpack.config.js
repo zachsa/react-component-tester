@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin")
+const path = require('path')
 
 module.exports = {
   entry: './src/index.jsx',
@@ -27,11 +28,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./public/index.html",
-      filename: "./public/index.html"
+      template: "./index.html",
+      filename: "./index.html"
     })
   ],
   devServer: {
+    contentBase: path.join(__dirname, 'public'),
     compress: true,
     before: function(app, server) {
       console.log("'before' callback is here")
