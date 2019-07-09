@@ -1,7 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 
 module.exports = {
-  entry: './index.jsx',
+  entry: './src/index.jsx',
   module: {
     rules: [
       {
@@ -27,8 +27,23 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./index.html",
-      filename: "./index.html"
+      template: "./public/index.html",
+      filename: "./public/index.html"
     })
-  ]  
+  ],
+  devServer: {
+    compress: true,
+    before: function(app, server) {
+      console.log("'before' callback is here")
+    },
+    after: function(app, server) {
+      console.log("'after' callback is here")
+    },
+    allowedHosts: [
+      '.localhost'
+    ],
+    headers: {
+      'Access-Control-Allow-Headers': '*'
+    }
+  }  
 }
